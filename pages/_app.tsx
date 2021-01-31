@@ -1,5 +1,8 @@
+import React from 'react';
 import { Provider } from 'react-redux'
 import { useStore } from '../store/store'
+
+import NextNprogress from 'nextjs-progressbar';
 
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import { AppProps } from 'next/app'
@@ -31,12 +34,18 @@ const theme = {
 }
 
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps): JSX.Element {
   const store = useStore(pageProps.initialReduxState)
 
   return (
     <>
       <GlobalStyle />
+      <NextNprogress
+        color="#29D"
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={5}
+      />
       <ThemeProvider theme={theme}>
         <Provider store={store}>
           <Component {...pageProps} />

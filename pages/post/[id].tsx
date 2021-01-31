@@ -1,3 +1,4 @@
+import React from 'react'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import { Layout } from '../../components/Layout'
@@ -33,7 +34,7 @@ const PostImage = styled.img`
     margin-right: 20px;
 `
 
-export default function SinglePost() {
+export default function SinglePost(): JSX.Element {
     const post = useSelector((state: AppStateType) => state.posts.postDetail)
 
     return (
